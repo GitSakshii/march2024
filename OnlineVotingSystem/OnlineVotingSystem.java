@@ -10,8 +10,6 @@ public class OnlineVotingSystem {
     private final String ElectionsFile = "E:/VotingSystem/elections.txt";
 
     private final String AdminFile="E:/VotingSystem/admin.txt";
-    private final String Voters="E:/VotingSystem/RegisteredUsers.csv";
-
 
     public OnlineVotingSystem(){
 

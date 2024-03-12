@@ -29,7 +29,7 @@ public class Main {
                             do {
                                 System.out.println("\nAdmin Menu:");
                                 System.out.println("1. Manage Election Candidate");
-                                System.out.println("2. Show Voters List");
+                                System.out.println("2. Manage Voters ");
                                 System.out.println("3. Manage Profile");
                                 System.out.println("4. Logout");
                                 System.out.println("Enter your Choice: ");
@@ -40,7 +40,33 @@ public class Main {
                                         system.manageElection();
                                         break;
                                     case 2:
-                                        registrationForm.ShowVoterdetails();
+                                        int adminchoice;
+                                        do{
+                                            System.out.println("Manage Voters:");
+                                            System.out.println("1.View Voters");
+                                            System.out.println("2.Remove Voters");
+                                            System.out.println("3.Go Back");
+                                            System.out.println("Enter Choice");
+                                            adminchoice=scanner.nextInt();
+                                            scanner.nextLine();
+                                            switch (adminchoice){
+                                                case 1:
+                                                    registrationForm.ShowVoterdetails();
+                                                    break;
+                                                case 2:
+                                                    registrationForm.ShowVoterdetails();
+                                                    System.out.println("Enter Id of voter to be removed");
+                                                    String removeVoter=scanner.nextLine();
+                                                    registrationForm.removeRegisteredUser(removeVoter);
+                                                    break;
+                                                case 3:
+                                                    break;
+                                                default:
+                                                    System.out.println("Enter Valid Choice!!");
+                                            }
+
+                                        }while(adminchoice!=3);
+
                                         break;
                                     case 3:
                                         system.manageProfile();
@@ -77,7 +103,12 @@ public class Main {
                             }
                             else break;
                         }
-
+                        if(attempts==0){ System.out.println("User has been  Blocked for 5 seconds...");
+                            try {
+                                Thread.sleep(5000); // Block for 5 seconds
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }}
                         if(registrationForm.isRegisteredUser(employeeId,Password)) {
                             System.out.println("Login Successful!!");
 
@@ -130,6 +161,8 @@ public class Main {
                                         registrationForm.changePassword(employeeId,newPassword);
                                         System.out.println("Password changed successfully!");
                                         break;
+                                    case 5:
+                                        break;
                                     default:
                                         System.out.println("Invalid Choice.Enter Valid choice!!");
                                 }
@@ -139,7 +172,7 @@ public class Main {
                          }
 
 
-                        if(attempts==0) System.out.println("User Blocked!!");
+
                         break;
                     case 4:
                         System.out.println("Exiting...");

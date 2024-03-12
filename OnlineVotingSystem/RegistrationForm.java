@@ -105,6 +105,33 @@ public class RegistrationForm {
             System.out.println(voter);
         }
     }
+    public void removeRegisteredUser(String employeeId) {
+        List<Voter> registeredUsers = readRegisteredUsers();
+        boolean found = false;
+
+        for (Voter voter : registeredUsers) {
+            if (voter.getEmployeeId().equals(employeeId)) {
+                registeredUsers.remove(voter);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("User with Employee ID " + employeeId + " not found.");
+            return;
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(RegisteredUsersFile))) {
+            for (Voter voter : registeredUsers) {
+                bw.write(voter.toCsvString());
+                bw.newLine();
+            }
+            System.out.println("User with Employee ID " + employeeId + " removed successfully.");
+        } catch (IOException e) {
+            System.out.println("Error writing updated registered users to file: " + e.getMessage());
+        }
+    }
     public void castVote(String employeeId, String electionId, char candidateSymbol) {
         try (BufferedReader br = new BufferedReader(new FileReader(VotersVote));
              BufferedWriter bw = new BufferedWriter(new FileWriter(VotersVote, true))) {

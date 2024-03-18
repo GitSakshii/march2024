@@ -4,12 +4,12 @@ import java.util.*;
 public class Classroom {
     private List<Course>Courses;
     private Map<Student,Course> studentCourseMap;
-    private Map<Task,Course>taskCourseMap;
+
     public Classroom()
     {
         Courses=new ArrayList<>();
         studentCourseMap=new HashMap<>();
-        taskCourseMap=new HashMap<>();
+
     }
 
     public void registerAsStudent(Scanner scanner)
@@ -74,7 +74,9 @@ public class Classroom {
             System.out.println("Student Menu: ");
             System.out.println("1.View Tasks");
             System.out.println("2.Hand in Task");
-            System.out.println("3.Exit");
+            System.out.println("3.View Pending Tasks");
+            System.out.println("4.View Submitted Tasks");
+            System.out.println("5.Exit");
             System.out.println("Enter Your choice");
             choice=scanner.nextInt();
             scanner.nextLine();
@@ -84,15 +86,21 @@ public class Classroom {
                     student.viewTasks();
                     break;
                 case 2:
-                    //Hand in Tasks
+                    student.submitTask(scanner);
                     break;
                 case 3:
+                    student.viewPendingTasks();
+                    break;
+                case 4:
+                    student.viewSubmittedTasks();
+                    break;
+                case 5:
                     break;
                 default:
                     System.out.println("Invalid Input!!\nEnter Valid Option.");
 
             }
-        }while(choice!=3);
+        }while(choice!=5);
     }
     public void AdminMenu(Scanner scanner)
     {
@@ -146,7 +154,7 @@ public class Classroom {
         if(addToCourse!=null)
         {
             Task task=new Task(title,dueDate,Description);
-            taskCourseMap.put(task, addToCourse);
+
             addToCourse.addTask(task);
             addToCourse.assigntasktostudents(task);
             System.out.println("Task has been successfully assigned to the course!");
@@ -185,6 +193,7 @@ public class Classroom {
         for(Course course: Courses)
         {
             System.out.println(course);
+            course.showStudentList();
         }
     }
 }

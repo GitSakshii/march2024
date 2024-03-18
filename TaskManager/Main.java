@@ -15,6 +15,7 @@ public class Main {
           System.out.println("  Log in ");
           System.out.println("3. As Admin");
           System.out.println("4. As Student");
+          System.out.println("5. Close The Application");
           choice=scanner.nextInt();
           scanner.nextLine();
           switch (choice){
@@ -39,6 +40,7 @@ public class Main {
                   classroom.loginAsStudent(scanner);
                   break;
               case 5:
+                  System.exit(0);
                   break;
               default:
                   System.out.println("Please Enter a valid choice");

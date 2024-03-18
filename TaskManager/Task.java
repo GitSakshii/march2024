@@ -1,8 +1,8 @@
 public class Task {
-    String title;
-    String duedate;
-    String Description;
-    String Status;
+    private String title;
+    private String duedate;
+    private String Description;
+    private String Status;
 
     public Task(String title,String duedate,String Description){
         this.title=title;

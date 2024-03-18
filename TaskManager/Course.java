@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
-    String courseId;
-    String Subject;
+    private String courseId;
+    private String Subject;
     private List<Student>StudentsEnrolled;
     private List<Task>TasksAssigned;
     public Course(String courseId,String Subject){

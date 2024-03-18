@@ -3,11 +3,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Student {
-    String Name;
+    private String Name;
 
-    String Email;
-    String Password;
-    List<Task>tasks;
+    private String Email;
+    private String Password;
+    private List<Task>tasks;
     Student(String Name,String Email,String Password)
     {
         this.Name=Name;

@@ -69,8 +69,11 @@ public class menuManager {
                     }
                     break;
 
-
-
+                case 4:
+                    break;
+                default:
+                    System.out.println("Invalid Input!!");
+                    break;
 
 
             }
@@ -218,7 +221,8 @@ public class menuManager {
                 case 10:
                     break;
 
-
+                default:
+                    System.out.println("Invalid Input !! Enter Again!!");
 
             }
 
@@ -257,6 +261,8 @@ public class menuManager {
                     break;
                 case 4:
                     break;
+                default:
+                    System.out.println("Invalid Input !! Enter Again!!");
 
             }
 
@@ -298,6 +304,8 @@ public class menuManager {
                     break;
                 case 3:
                     break;
+                default :
+                    System.out.println("Invalid Input!!. Enter Again!!");
 
             }
         }while(patientchoice!=3);
